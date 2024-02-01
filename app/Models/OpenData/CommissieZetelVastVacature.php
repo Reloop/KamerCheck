@@ -5,11 +5,10 @@ namespace App\Models\OpenData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Activiteit extends Model
+class CommissieZetelVastVacature extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
-
-    protected $table = 'activiteiten';
+    protected $table = 'commissie_zetel_vaste_vacatures';
 }

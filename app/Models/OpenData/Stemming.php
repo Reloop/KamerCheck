@@ -5,11 +5,10 @@ namespace App\Models\OpenData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Activiteit extends Model
+class Stemming extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
-
-    protected $table = 'activiteiten';
+    protected $table = 'stemmingen';
 }
