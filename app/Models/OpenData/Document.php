@@ -11,4 +11,8 @@ class Document extends Model
 
     public $timestamps = false;
     protected $table = 'documenten';
+
+    public function versie() {
+       // $this->hasOne(DocumentVersie::class, )
+    }
 }
