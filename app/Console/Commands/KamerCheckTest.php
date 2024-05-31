@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
 
 class KamerCheckTest extends Command
 {
@@ -25,15 +26,23 @@ class KamerCheckTest extends Command
      */
     public function handle()
     {
-//        $xml = simplexml_load_file(storage_path() . '\app\tkData-v1-0-zaal.xsd');
-//        $data = $xml->children('http://www.w3.org/2001/XMLSchema');
-//
-//        echo $data->complexType->complexContent->extension->sequence->element->attributes()->name . "\n";
-//        foreach($data->complexType->complexContent->extension->sequence->element as $element){
-//            echo str_pad($element->attributes()->name, 40) . str_pad($element->attributes()->nillable, 10) . $element->attributes()->type . "\n";
-//        }
+        $count = 0;
+        $terms = [];
+        $files = Storage::files('/feed/');
+        foreach($files as $file) {
+            $file = explode('/', $file)[1];
+            $xml = simplexml_load_string(Storage::get('\feed\\' . $file));
+            foreach($xml->entry as $entry) {
+                $count++;
+                if(!in_array($entry->term, $terms)) {
+                    $terms[] = $entry->term;
+                }
+            }
+        }
 
-
-
+        foreach($terms as $term) {
+            echo "$term \n";
+        }
+        echo "$count \n";
     }
 }

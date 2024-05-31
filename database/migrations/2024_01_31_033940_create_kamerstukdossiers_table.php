@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('titel')->nullable();
             $table->text('citeertitel')->nullable();
             $table->text('alias')->nullable();
-            $table->bigint('nummer')->nullable();
+            $table->bigInteger('nummer')->nullable();
             $table->text('toevoeging')->nullable();
             $table->integer('hoogsteVolgnummer');
             $table->boolean('afgesloten')->nullable();
