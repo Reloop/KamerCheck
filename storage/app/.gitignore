@@ -1,5 +1,7 @@
 *
 !public/
 !.gitignore
+!data/
 !feed/
 !tables/
+!stemmingen/
