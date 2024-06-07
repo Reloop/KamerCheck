@@ -24,9 +24,9 @@ return new class extends Migration
             $table->boolean('vergissing')->nullable();
             $table->text('sidActorLid')->nullable();
             $table->text('sidActorFractie')->nullable();
-            $table->dateTime('gewijzigdOp');
-            $table->dateTime('apiGewijzigdOp');
-            $table->boolean('verwijderd');
+            $table->dateTime('gewijzigdOp')->nullable();
+            $table->dateTime('apiGewijzigdOp')->nullable();
+            $table->boolean('verwijderd')->nullable();
         });
     }
 

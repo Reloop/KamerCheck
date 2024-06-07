@@ -180,12 +180,12 @@ return [
     */
 
     'defaults' => [
-        'supervisor-1' => [
+        'download_supervisor' => [
             'connection' => 'redis',
-            'queue' => ['default'],
+            'queue' => ['download'],
             'balance' => 'auto',
             'autoScalingStrategy' => 'time',
-            'maxProcesses' => 1,
+            'maxProcesses' => 5,
             'maxTime' => 0,
             'maxJobs' => 0,
             'memory' => 128,
@@ -197,7 +197,7 @@ return [
 
     'environments' => [
         'production' => [
-            'supervisor-1' => [
+            'download_supervisor' => [
                 'maxProcesses' => 10,
                 'balanceMaxShift' => 1,
                 'balanceCooldown' => 3,
@@ -205,8 +205,8 @@ return [
         ],
 
         'local' => [
-            'supervisor-1' => [
-                'maxProcesses' => 3,
+            'download_supervisor' => [
+                'maxProcesses' => 5,
             ],
         ],
     ],
