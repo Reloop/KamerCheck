@@ -9,6 +9,7 @@ class Stemming extends Model
 {
     use HasFactory;
 
+
     public $timestamps = false;
     protected $table = 'stemmingen';
 }

@@ -193,6 +193,19 @@ return [
             'timeout' => 60,
             'nice' => 0,
         ],
+        'parse_supervisor' => [
+            'connection' => 'redis',
+            'queue' => ['parse'],
+            'balance' => 'auto',
+            'autoScalingStrategy' => 'time',
+            'maxProcesses' => 10,
+            'maxTime' => 0,
+            'maxJobs' => 0,
+            'memory' => 128,
+            'tries' => 1,
+            'timeout' => 60,
+            'nice' => 0,
+        ],
     ],
 
     'environments' => [
@@ -202,11 +215,19 @@ return [
                 'balanceMaxShift' => 1,
                 'balanceCooldown' => 3,
             ],
+            'parse_supervisor' => [
+                'maxProcesses' => 10,
+                'balanceMaxShift' => 1,
+                'balanceCooldown' => 3,
+            ],
         ],
 
         'local' => [
             'download_supervisor' => [
                 'maxProcesses' => 5,
+            ],
+            'parse_supervisor' => [
+                'maxProcesses' => 10,
             ],
         ],
     ],
