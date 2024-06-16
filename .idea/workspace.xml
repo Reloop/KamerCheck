@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AIAssistantCustomInstructionsStorage">
+    <option name="instructions">
+      <map>
+        <entry key="AIAssistant.VCS.GenerateCommitMessage">
+          <value>
+            <AIAssistantStoredInstruction>
+              <option name="actionId" value="AIAssistant.VCS.GenerateCommitMessage" />
+              <option name="content" value="Avoid overly verbose descriptions or unnecessary details.&#10;Start with a short sentence in imperative form, no more than 50 characters long.&#10;Then leave an empty line and continue with a more detailed explanation.&#10;Write only one sentence for the first part, and two or three sentences at most for the detailed explanation.&#10;&#10;Always include the addition of new files." />
+            </AIAssistantStoredInstruction>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4271a08f-e322-401d-b6d9-024ad121fbe1" name="Changes" comment="Feed database import&#10;Stemming import">
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_15_06_2024_10_06.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Jobs/FetchZaak.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Jobs/ImportBesluit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Jobs/ImportZaak.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
+    <list default="true" id="4271a08f-e322-401d-b6d9-024ad121fbe1" name="Changes" comment="Removed .env&#10;&#10;Added fetcher and importer for &quot;Zaak&quot;.">
+      <change afterPath="$PROJECT_DIR$/app/Jobs/FetchAgendapunt.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Jobs/ImportAgendapunt.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Console/Commands/KamerCheckTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/KamerCheckTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/FetchBesluit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/FetchBesluit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/ImportStemming.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/ImportStemming.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2024_01_30_234128_create_besluiten_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_01_30_234128_create_besluiten_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2024_02_01_023438_create_zaken_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_02_01_023438_create_zaken_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/app/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +242,7 @@
       <workItem from="1716724885279" duration="18296000" />
       <workItem from="1718437717003" duration="410000" />
       <workItem from="1718438570616" duration="1670000" />
-      <workItem from="1718440267357" duration="11874000" />
+      <workItem from="1718440267357" duration="18181000" />
     </task>
     <task id="LOCAL-00001" summary="Feed database import&#10;Stemming import">
       <option name="closed" value="true" />
@@ -252,7 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717343501768</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Removed .env&#10;&#10;Added fetcher and importer for &quot;Zaak&quot;.">
+      <option name="closed" value="true" />
+      <created>1718527512150</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718527512150</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +268,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Feed database import&#10;Stemming import" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feed database import&#10;Stemming import" />
+    <MESSAGE value="&quot;Removed .env file and added .idea folder and XML files for IDE configuration&quot;&#10;&#10;This commit includes the removal of the .env file, an important step for security as it contains sensitive data that should not be tracked by version control. In addition, .idea folder and various XML files were added which are used for preserving and sharing IDE configurations among team members. Meanwhile, some updates were made in the database migration file to make certain fields nullable and a change to the .gitignore file was made to exclude the .env file from the repository." />
+    <MESSAGE value="Removed .env&#10;&#10;Added fetcher and importer for &quot;Zaak&quot;." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed .env&#10;&#10;Added fetcher and importer for &quot;Zaak&quot;." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

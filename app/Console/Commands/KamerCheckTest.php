@@ -39,16 +39,16 @@ class KamerCheckTest extends Command
      */
     public function handle(): void
     {
-        DB::table('feeds')->where('term', 'zaak')->orderBy('id')->chunk(1000, function ($feeds) {
+        DB::table('feeds')->where('term', 'agendapunt')->orderBy('id')->chunk(1000, function ($feeds) {
             $this->chunk += 1000;
             foreach($feeds as $feed) {
                 //ImportStemming::dispatch($feed->openData_id)->onQueue('parse');
-//                if(!Storage::exists('\zaken\\'. $feed->openData_id)) {
+//                if(!Storage::exists('\agendapunten\\'. $feed->openData_id)) {
 //                    $data = HTTP::get($feed->url);
-//                    Storage::put('\zaken\\' . $feed->openData_id, $data);
+//                    Storage::put('\agendapunten\\' . $feed->openData_id, $data);
 //                }
-                if(Storage::exists('\zaken\\' . $feed->openData_id)) {
-                    $xml = simplexml_load_string(Storage::get('\zaken\\' . $feed->openData_id));
+                if(Storage::exists('\agendapunten\\' . $feed->openData_id)) {
+                    $xml = simplexml_load_string(Storage::get('\agendapunten\\' . $feed->openData_id));
                     $xml->registerXPathNamespace('tk', 'http://www.tweedekamer.nl/xsd/tkData/v1-0');
                     if($xml->attributes('tk', 'true')->verwijderd == 'false') {
                         dd($feed->openData_id);
@@ -60,7 +60,5 @@ class KamerCheckTest extends Command
                 echo "@ " . $this->chunk . "\n";
             }
         });
-
-
     }
 }
