@@ -13,7 +13,7 @@
 
 namespace App\Models{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -36,18 +36,26 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * 
  *
+ *
+ * @property int $id
+ * @property int $feed_id
+ * @property string $rel
+ * @property string $value
  * @method static \Illuminate\Database\Eloquent\Builder|Link newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Link newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Link query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Link whereFeedId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Link whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Link whereRel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Link whereValue($value)
  */
 	class Link extends \Eloquent {}
 }
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -118,7 +126,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -161,7 +169,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -200,21 +208,21 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
- * @property string $agendapunt_id
- * @property string $zaak_id
+ * @property string|null $agendapunt_id
+ * @property string|null $zaak_id
  * @property string|null $stemmingsSoort
  * @property string|null $besluitSoort
  * @property string|null $besluitTekst
  * @property string|null $opmerking
  * @property string|null $status
  * @property int|null $agendapuntZaakBesluitVolgorde
- * @property string $gewijzigdOp
- * @property string $apiGewijzigdOp
- * @property int $verwijderd
+ * @property string|null $gewijzigdOp
+ * @property string|null $apiGewijzigdOp
+ * @property int|null $verwijderd
  * @method static \Illuminate\Database\Eloquent\Builder|Besluit newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Besluit newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Besluit query()
@@ -237,7 +245,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $openData_id
@@ -292,7 +300,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -321,7 +329,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -346,7 +354,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -377,7 +385,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -408,7 +416,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -439,7 +447,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -470,7 +478,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $openData_id
@@ -525,7 +533,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -556,7 +564,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -587,7 +595,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -622,7 +630,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -645,7 +653,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @method static \Illuminate\Database\Eloquent\Builder|FractieZetelPersoon newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|FractieZetelPersoon newQuery()
@@ -656,7 +664,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -683,7 +691,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -720,7 +728,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -775,7 +783,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -802,7 +810,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -829,7 +837,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -866,7 +874,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -897,7 +905,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -936,7 +944,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -969,7 +977,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -1002,7 +1010,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -1031,7 +1039,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -1039,15 +1047,15 @@ namespace App\Models\OpenData{
  * @property string $soort
  * @property string|null $fractie
  * @property int $fractieGrootte
- * @property string|null $persoon
  * @property string|null $actorNaam
  * @property string|null $actorFractie
- * @property string|null $vergissing
+ * @property string|null $persoon
+ * @property int|null $vergissing
  * @property string|null $sidActorLid
  * @property string|null $sidActorFractie
- * @property string|null $gewijzigdOp
- * @property string|null $apiGewijzigdOp
- * @property int|null $verwijderd
+ * @property string $gewijzigdOp
+ * @property string $apiGewijzigdOp
+ * @property int $verwijderd
  * @method static \Illuminate\Database\Eloquent\Builder|Stemming newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Stemming newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Stemming query()
@@ -1072,7 +1080,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -1129,7 +1137,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -1168,7 +1176,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -1193,10 +1201,11 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
+ * @property string $agendapunt_id
  * @property string $nummer
  * @property string|null $soort
  * @property string $onderwerp
@@ -1208,6 +1217,7 @@ namespace App\Models\OpenData{
  * @property string|null $grondslagvoorhang
  * @property string|null $termijn
  * @property int $vergaderjaar
+ * @property int $volgnummer
  * @property string|null $status
  * @property string|null $huidigeBehandelstatus
  * @property int|null $afgedaan
@@ -1246,7 +1256,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -1279,7 +1289,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models\OpenData{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $openData_id
@@ -1304,7 +1314,7 @@ namespace App\Models\OpenData{
 
 namespace App\Models{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $name

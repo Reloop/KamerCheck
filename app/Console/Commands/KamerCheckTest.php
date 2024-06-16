@@ -6,6 +6,7 @@ use App\Jobs\FetchBesluit;
 use App\Jobs\FetchStemming;
 use App\Jobs\ImportStemming;
 use App\Models\Feed;
+use App\Models\OpenData\Besluit;
 use App\Models\OpenData\Stemming;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
@@ -38,12 +39,22 @@ class KamerCheckTest extends Command
      */
     public function handle(): void
     {
-        DB::table('feeds')->where('term', 'besluit')->orderBy('id')->chunk(1000, function ($feeds) {
+        DB::table('feeds')->where('term', 'zaak')->orderBy('id')->chunk(1000, function ($feeds) {
             $this->chunk += 1000;
             foreach($feeds as $feed) {
                 //ImportStemming::dispatch($feed->openData_id)->onQueue('parse');
-                $xml = simplexml_load_string(Storage::get('besluiten\\' . $feed->openData_id));
+//                if(!Storage::exists('\zaken\\'. $feed->openData_id)) {
+//                    $data = HTTP::get($feed->url);
+//                    Storage::put('\zaken\\' . $feed->openData_id, $data);
+//                }
+                if(Storage::exists('\zaken\\' . $feed->openData_id)) {
+                    $xml = simplexml_load_string(Storage::get('\zaken\\' . $feed->openData_id));
+                    $xml->registerXPathNamespace('tk', 'http://www.tweedekamer.nl/xsd/tkData/v1-0');
+                    if($xml->attributes('tk', 'true')->verwijderd == 'false') {
+                        dd($feed->openData_id);
+                    }
 
+                }
             }
             if ($this->chunk % 10000 == 0) {
                 echo "@ " . $this->chunk . "\n";

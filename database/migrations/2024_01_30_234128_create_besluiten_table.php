@@ -14,16 +14,16 @@ return new class extends Migration
         Schema::create('besluiten', function (Blueprint $table) {
             $table->id();
             $table->text('openData_id');
-            $table->text('agendapunt_id');
-            $table->text('zaak_id');
+            $table->text('agendapunt_id')->nullable();
+            $table->text('zaak_id')->nullable();
             $table->text('stemmingsSoort')->nullable();
             $table->text('besluitSoort')->nullable();
             $table->text('besluitTekst')->nullable();
             $table->text('opmerking')->nullable();
             $table->text('status')->nullable();
             $table->integer('agendapuntZaakBesluitVolgorde')->nullable();
-            $table->dateTime('gewijzigdOp');
-            $table->dateTime('apiGewijzigdOp');
+            $table->dateTime('gewijzigdOp')->nullable();
+            $table->dateTime('apiGewijzigdOp')->nullable();
             $table->boolean('verwijderd');
         });
     }

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('zaken', function (Blueprint $table) {
             $table->id();
             $table->text('openData_id');
-            $table->text('nummer');
+            $table->text('nummer')->nullable();
             $table->text('soort')->nullable();
-            $table->text('onderwerp');
+            $table->text('onderwerp')->nullable();
             $table->dateTime('gestartOp')->nullable();
             $table->text('organisatie')->nullable();
             $table->text('titel')->nullable();
@@ -24,7 +24,8 @@ return new class extends Migration
             $table->text('alias')->nullable();
             $table->text('grondslagvoorhang')->nullable();
             $table->text('termijn')->nullable();
-            $table->integer('vergaderjaar');
+            $table->integer('vergaderjaar')->nullable();
+            $table->integer('volgnummer')->nullable();
             $table->text('status')->nullable();
             $table->text('huidigeBehandelstatus')->nullable();
             $table->boolean('afgedaan')->nullable();

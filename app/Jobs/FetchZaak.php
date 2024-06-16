@@ -2,7 +2,6 @@
 
 namespace App\Jobs;
 
-use App\Models\OpenData\Besluit;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -11,14 +10,14 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
-class FetchBesluit implements ShouldQueue
+class FetchZaak implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
      * Create a new job instance.
      */
-    public function __construct(private $feed)
+    public function __construct(public $feed)
     {
         //
     }
@@ -28,10 +27,9 @@ class FetchBesluit implements ShouldQueue
      */
     public function handle(): void
     {
-
-        if(!Storage::exists('\besluiten\\'. $this->feed->openData_id)) {
+        if(!Storage::exists('\zaken\\'. $this->feed->openData_id)) {
             $data = HTTP::get($this->feed->url);
-            Storage::put('\besluiten\\' . $this->feed->openData_id, $data);
+            Storage::put('\zaken\\' . $this->feed->openData_id, $data);
         }
     }
 }

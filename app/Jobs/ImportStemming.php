@@ -29,8 +29,9 @@ class ImportStemming implements ShouldQueue
     public function handle(): void
     {
         $xml = simplexml_load_string(Storage::get('\stemmingen\\' . $this->openData_id));
-        if(isset($xml->soort)) {
-            $stemming = new Stemming();
+        $xml->registerXPathNamespace('tk', 'http://www.tweedekamer.nl/xsd/tkData/v1-0');
+        $stemming = new Stemming();
+        if($xml->attributes('tk', 'true')->verwijderd == 'false') {
             $stemming->openData_id = $this->openData_id;
             $stemming->besluit_id = $xml->besluit['ref'];
             $stemming->soort = $xml->soort;
@@ -43,13 +44,15 @@ class ImportStemming implements ShouldQueue
             $stemming->sidActorLid = $xml->sidActorLid;
             $stemming->sidActorFractie = $xml->sidActorFractie;
             if (isset($xml->gewijzigdOp)) {
-                Carbon::parse($xml->gewijzigdOp)->toDateTime();
+                $stemming->gewijzigdOp = Carbon::parse($xml->gewijzigdOp)->toDateTime();
             }
             if (isset($xml->apiGewijzigdOp)) {
-                Carbon::parse($xml->apiGewijzigdOp)->toDateTime();
+                $stemming->apiGewijzigdOp = Carbon::parse($xml->apiGewijzigdOp)->toDateTime();
             }
-            $stemming->verwijderd = isset($xml->verwijderd) ?? 0;
-            $stemming->save();
+            $stemming->verwijderd = 0;
+        } else {
+            $stemming->verwijderd = 1;
         }
+        $stemming->save();
     }
 }
