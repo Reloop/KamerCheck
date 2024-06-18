@@ -31,6 +31,7 @@ class ImportBesluit implements ShouldQueue
         $xml = simplexml_load_string(Storage::get('\besluiten\\' . $this->feed->openData_id));
         $xml->registerXPathNamespace('tk', 'http://www.tweedekamer.nl/xsd/tkData/v1-0');
         $besluit = new Besluit();
+        $besluit->openData_id = $this->feed->openData_id;
         if($xml->attributes('tk', 'true')->verwijderd == 'false') {
             $besluit->openData_id = $this->feed->openData_id;
             $besluit->agendapunt_id = $xml->agendapunt['ref'];
