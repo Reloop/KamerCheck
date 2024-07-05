@@ -48,10 +48,21 @@ class ImportZaak implements ShouldQueue
             $zaak->volgnummer = $xml->volgnummer;
             $zaak->status = $xml->status;
             $zaak->huidigeBehandelstatus = $xml->huidigeBehandelstatus;
-            $zaak->afgedaan = $xml->afgedaan;
-            $zaak->grootProject = $xml->grootProject;
+            if($xml->afgedaan == 'true') {
+                $zaak->afgedaan = 1;
+            }
+            else {
+                $zaak->afgedaan = 0;
+            }
+            if($xml->afgedaan == 'true') {
+                $zaak->grootProject = 1;
+            }
+            else {
+                $zaak->grootProject = 0;
+            }
             $zaak->kabinetsappreciatie = $xml->kabinetsappreciatie;
         } else {
+            $zaak->openData_id = $this->feed->openData_id;
             $zaak->verwijderd = 1;
         }
         $zaak->save();
